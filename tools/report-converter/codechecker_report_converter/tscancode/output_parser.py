@@ -55,8 +55,8 @@ class TscanCodeParser(BaseParser):
         file_path = error.get("file")
         line = int(error.get("line"))
         column = 0
-        # severity = error.get("severity") TODO 没有找到传入 severity 的方法，后续待增强
-        checker_name = error.get("id") + "." + error.get("subid")
+        severity = error.get("severity") # TODO 没有找到更好传入 severity 的方法，后续待增强
+        checker_name = severity + "." + error.get("id") + "." + error.get("subid")
         msg = error.get("msg")
 
         message = Message(
