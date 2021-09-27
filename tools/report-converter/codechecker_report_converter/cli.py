@@ -68,6 +68,8 @@ from codechecker_report_converter.sanitizers.leak.analyzer_result import \
     LSANAnalyzerResult  # noqa
 from codechecker_report_converter.tscancode.analyzer_result import \
     TscanCodeAnalyzerResult  # noqa
+from codechecker_report_converter.codeclimate.analyzer_result import \
+    CodeClimateAnalyzerResult  # noqa
 
 
 LOG = logging.getLogger('ReportConverter')
@@ -110,7 +112,8 @@ supported_converters = {
     SparseAnalyzerResult.TOOL_NAME: SparseAnalyzerResult,
     CpplintAnalyzerResult.TOOL_NAME: CpplintAnalyzerResult,
     LSANAnalyzerResult.TOOL_NAME: LSANAnalyzerResult,
-    TscanCodeAnalyzerResult.TOOL_NAME: TscanCodeAnalyzerResult
+    TscanCodeAnalyzerResult.TOOL_NAME: TscanCodeAnalyzerResult,
+    CodeClimateAnalyzerResult.TOOL_NAME: CodeClimateAnalyzerResult
 }
 
 supported_metadata_keys = ["analyzer_command", "analyzer_version"]
