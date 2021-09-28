@@ -54,11 +54,14 @@ class CodeClimateParser(BaseParser):
         else:
             checker_name = error['check_name']
         
-        events = [Event(file_path, line, column, msg)]
+        events = []
 
         if 'other_locations' in error:
            for loc in error['other_locations']:
-               events.append(Event(loc['path'], int(_get_begin_line(loc)), column, ''))
+               other_msg = ''
+               if 'description' in loc:
+                   other_msg = loc['description']
+               events.append(Event(loc['path'], int(_get_begin_line(loc)), column, other_msg))
 
         message = Message(
             file_path,
